@@ -52,9 +52,9 @@ public class DriveSubsystem extends SubsystemBase {
 
     double turnSpeed = RobotContainer.joystick.getLeftX();
 
-    drive.arcadeDrive(forwardSpeed, turnSpeed);
+    drive.arcadeDrive(forwardSpeed, 0);
 
-    if (turnSpeed <= 0.15){
+    if (turnSpeed <= 0.15 && turnSpeed >= -0.15){
       turnSpeed = 0;
     }
     else if (turnSpeed > 0.15){
@@ -63,8 +63,8 @@ public class DriveSubsystem extends SubsystemBase {
     else if(turnSpeed < 0.15){
       turnSpeed = (-0.8*(Math.pow(turnSpeed-0.15, 2)))+ 0.15;
     }
+    sparkMax.set(turnSpeed);
   }
-
 
   public void setSpeedAndRotation(double speed, double rotation)
   {
