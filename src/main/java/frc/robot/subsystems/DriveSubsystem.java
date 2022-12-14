@@ -54,7 +54,7 @@ public class DriveSubsystem extends SubsystemBase {
 
     drive.arcadeDrive(forwardSpeed, 0);
 
-    if (turnSpeed <= 0.15 && turnSpeed >= -0.15){
+    if (turnSpeed <= 0.15 && turnSpeed >= -0.15) ||{
       turnSpeed = 0;
     }
     else if (turnSpeed > 0.15){
